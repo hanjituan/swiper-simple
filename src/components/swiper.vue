@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="btn">
-        <button class="btn-left" @click="prevPage"><</button>
+        <button class="btn-left" @click="prevPage">←</button>
         <button class="btn-right" @click="nextPage">></button>
       </div>
     </div>
