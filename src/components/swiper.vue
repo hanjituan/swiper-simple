@@ -8,12 +8,7 @@
       </div>
       <div class="pagenation">
         <div v-for="(img, index) in imgs" class="page-item" :key="index">
-          <img
-            :src="img"
-            :class="{ active: scrollIndex == index }"
-            @click="jumpByIndex(index)"
-            alt=""
-          />
+          <img :src="img" :class="{ active: scrollIndex == index }" @click="jumpByIndex(index)" alt="" />
         </div>
       </div>
       <div class="btn">
@@ -63,8 +58,8 @@ export default {
     window.removeEventListener("keydown", this.keydown);
   },
   methods: {
-    start() {},
-    pauze() {},
+    start() { },
+    pauze() { },
 
     play() {
       this.timer = setInterval(() => {
@@ -138,7 +133,9 @@ export default {
     scrollIntoViews() {
       const pages = document.querySelector(".pagenation");
       const currentPageEl = [...pages.childNodes][this.scrollIndex];
-      console.log(currentPageEl);
+      if (!currentPageEl) {
+        return
+      }
       currentPageEl.scrollIntoView({
         behavior: "smooth",
       });
@@ -175,6 +172,7 @@ img {
   width: 100%;
   height: 100%;
 }
+
 .pagenation {
   position: absolute;
   bottom: 0;
@@ -201,6 +199,7 @@ img {
 .active {
   filter: grayscale(0) !important;
 }
+
 .btn {
   position: absolute;
   top: 50%;
