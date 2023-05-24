@@ -2,6 +2,7 @@
   "name": "swiper-simple",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/hanjituan/swiper-simple",
   "scripts": {
     "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
