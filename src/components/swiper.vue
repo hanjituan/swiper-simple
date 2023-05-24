@@ -1,25 +1,32 @@
 <template>
-  <div>
-    <div class="swiper-wrapper">
-      <div class="swiper-container" ref="con">
-        <div class="swiper-item" v-for="(img, index) in imgs" :key="index">
-          <img :src="img" alt="" />
-        </div>
+  <div class="swiper-wrapper">
+    <div class="swiper-container" ref="con">
+      <div class="swiper-item" v-for="(img, index) in imgs" :key="index">
+        <img :src="img" alt="" />
       </div>
-      <div class="pagenation">
-        <div v-for="(img, index) in imgs" class="page-item" :key="index">
-          <img :src="img" :class="{ active: scrollIndex == index }" @click="jumpByIndex(index)" alt="" />
-        </div>
+    </div>
+    <div class="pagenation">
+      <div v-for="(img, index) in imgs" class="page-item" :key="index">
+        <img :src="img" :class="{ active: scrollIndex == index }" @click="jumpByIndex(index)" alt="" />
       </div>
-      <div class="btn">
-        <button class="btn-left" @click="prevPage">←</button>
-        <button class="btn-right" @click="nextPage">></button>
-      </div>
+    </div>
+    <div class="btn">
+      <button class="btn-left" @click="prevPage">
+        <slot name="leftBtn">
+          ←
+        </slot>
+      </button>
+      <slot name="rightBtn">
+        <button class="btn-right" @click="nextPage">
+          →
+        </button>
+      </slot>
     </div>
   </div>
 </template>
 
 <script>
+import props from "./props"
 export default {
   name: "swiper",
   data() {
@@ -28,25 +35,20 @@ export default {
       swiperContainer: null,
       scrollIndex: 0,
       timer: null,
-      autoPlay: true,
-      playTime: 3,
       imgs: [],
     };
   },
   props: {
-    msg: String,
-    imgList: {
-      type: Array,
-      default: () => [],
-      required: true,
-    },
+    ...props
   },
 
   mounted() {
     this.$nextTick(() => {
       this.imgs = [...this.imgList];
       this.swiperContainer = document.querySelector(".swiper-container");
-      window.addEventListener("keydown", this.keydown);
+      if (this.keysControl) {
+        window.addEventListener("keydown", this.keydown);
+      }
       if (this.autoPlay) {
         this.play();
       } else {
@@ -88,17 +90,17 @@ export default {
       }
     },
 
-    nextPage(goon = false) {
+    nextPage(infinite = false) {
       this.scrollIndex++;
       if (this.scrollIndex > this.imgs.length - 1) {
-        if (goon) {
+        if (infinite) {
           this.imgs = this.imgs.concat(this.imgs);
           this.$nextTick(() => {
             this.nextFn();
           });
-          setTimeout(() => {
-            this.imgs = this.imgs.splice(0, this.imgList.length);
-          }, this.playTime * 1000);
+          // setTimeout(() => {
+          //   this.imgs = this.imgs.splice(0, this.imgList.length);
+          // }, 100);
         } else {
           this.scrollIndex = this.imgs.length - 1;
         }

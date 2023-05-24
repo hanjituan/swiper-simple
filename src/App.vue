@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <Swiper msg="Hello Vue in CodeSandbox!" :imgList="list" />
+    <Swiper :imgList="list" :keysControl="true">
+      <div class="" slot="rightBtn">
+        i am left btn
+      </div>
+    </Swiper>
   </div>
 </template>
 
