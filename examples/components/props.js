@@ -17,4 +17,9 @@ export default {
     type: Boolean,
     default: () => true,
   },
+  // 是否支持无线滚动
+  infinite: {
+    type: Boolean,
+    default: () => false,
+  },
 }

@@ -11,11 +11,11 @@
       </div>
     </div>
     <div class="btn">
-      <button class="btn-left" @click="prevPage">
-        <slot name="leftBtn">
+      <slot name="leftBtn">
+        <button class="btn-left" @click="prevPage">
           ←
-        </slot>
-      </button>
+        </button>
+      </slot>
       <slot name="rightBtn">
         <button class="btn-right" @click="nextPage">
           →
@@ -90,10 +90,10 @@ export default {
       }
     },
 
-    nextPage(infinite = false) {
+    nextPage() {
       this.scrollIndex++;
       if (this.scrollIndex > this.imgs.length - 1) {
-        if (infinite) {
+        if (this.infinite) {
           this.imgs = this.imgs.concat(this.imgs);
           this.$nextTick(() => {
             this.nextFn();

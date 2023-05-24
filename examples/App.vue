@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <Swiper :imgList="list" :keysControl="true">
-      <div class="" slot="rightBtn">
+      <!-- <div class="" slot="leftBtn">
         i am left btn
       </div>
+      <div class="" slot="rightBtn">
+        i am left btn
+      </div> -->
     </Swiper>
   </div>
 </template>
