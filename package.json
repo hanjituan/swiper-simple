@@ -2,16 +2,15 @@
   "name": "vue-swiper-simple",
   "version": "0.1.0",
   "private": false,
-  "repository": "https://github.com/hanjituan/swiper-simple",
+  "repository": "https://github.com/hanjituan/vue-swiper-simple",
   "scripts": {
     "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name swiper-simple --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --name vue-swiper-simple --dest lib packages/index.js"
   },
   "dependencies": {
-    "@vue/cli-plugin-babel": "4.1.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -20,7 +19,8 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.0.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "@vue/cli-plugin-babel": "4.1.1"
   },
   "eslintConfig": {
     "root": true,
