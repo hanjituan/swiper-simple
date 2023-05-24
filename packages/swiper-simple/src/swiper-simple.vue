@@ -28,7 +28,7 @@
 <script>
 import props from "./props"
 export default {
-  name: "swiper",
+  name: "swiper-simple",
   data() {
     return {
       offset: 0,

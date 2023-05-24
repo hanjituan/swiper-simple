@@ -1,13 +1,14 @@
 {
   "name": "swiper-simple",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "repository": "https://github.com/hanjituan/swiper-simple",
   "scripts": {
     "dev": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name swiper-simple --dest lib packages/index.js"
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",

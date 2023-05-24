@@ -1,24 +1,21 @@
 <template>
   <div id="app">
-    <Swiper :imgList="list" :keysControl="true">
+    <swiper-simple :imgList="list" :keysControl="true">
       <!-- <div class="" slot="leftBtn">
         i am left btn
       </div>
       <div class="" slot="rightBtn">
         i am left btn
       </div> -->
-    </Swiper>
+    </swiper-simple>
   </div>
 </template>
 
 <script>
-import Swiper from "./components/swiper.vue";
+// import Swiper from "~/packages/swiper/index"
 
 export default {
   name: "App",
-  components: {
-    Swiper,
-  },
   data() {
     return {
       list: [
